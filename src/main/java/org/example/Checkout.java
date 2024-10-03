@@ -5,7 +5,7 @@ import java.util.Map;
 
 public class Checkout {
     private Map<String, Integer> prices = new HashMap<>();
-    private Map<String, Integer> specialPrices = new HashMap<>();
+    private Map<String, SpecialPriceRules> specialPrices = new HashMap<>();
     private Map<String, Integer> itemCounts = new HashMap<>();
     private int total = 0;
 
@@ -17,7 +17,8 @@ public class Checkout {
         prices.put("D", 15);
 
         //hardcoded values for green phase of TDD, to test special price requirement
-        specialPrices.put("A", 130);
+        specialPrices.put("A", new SpecialPriceRules(3, 150));
+        specialPrices.put("B", new SpecialPriceRules(2, 45));
     }
 
     public void scan (String item){
@@ -29,9 +30,14 @@ public class Checkout {
 
     public void applyPrice(String item){
         int count = itemCounts.get(item);
-        if (item.equals("A") && count % 3 == 0) {
-            total -= 2 * prices.get(item);
-            total += specialPrices.get(item);
+        if (specialPrices.containsKey(item)) {
+            SpecialPriceRules rules = specialPrices.get(item);
+            if (count % rules.getQuantity() == 0) {
+                total -= (rules.getQuantity() - 1) * prices.get(item);  // Adjust for special price
+                total += rules.getPrice();
+            } else {
+                total += prices.get(item);
+            }
         } else {
             total += prices.get(item);
         }
