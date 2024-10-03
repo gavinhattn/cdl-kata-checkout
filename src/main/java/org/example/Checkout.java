@@ -17,7 +17,7 @@ public class Checkout {
         prices.put("D", 15);
 
         //hardcoded values for green phase of TDD, to test special price requirement
-        specialPrices.put("A", new SpecialPriceRules(3, 150));
+        specialPrices.put("A", new SpecialPriceRules(3, 130));
         specialPrices.put("B", new SpecialPriceRules(2, 45));
     }
 
