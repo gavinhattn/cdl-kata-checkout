@@ -45,6 +45,14 @@ public class Checkout {
         }
     }
 
+    public void addItemPrice(String item, int price) {
+        prices.put(item, price);
+    }
+
+    public void addSpecialPrice(String item, int quantity, int price) {
+        specialPrices.put(item, new SpecialPriceRules(quantity, price));
+    }
+
     public int getTotal() {
         return total;
     }
