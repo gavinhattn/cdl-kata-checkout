@@ -10,13 +10,11 @@ public class Checkout {
     private int total = 0;
 
     public Checkout() {
-        //hardcoded values for green phase of TDD
         prices.put("A", 50);
         prices.put("B", 30);
         prices.put("C", 20);
         prices.put("D", 15);
 
-        //hardcoded values for green phase of TDD, to test special price requirement
         specialPrices.put("A", new SpecialPriceRules(3, 130));
         specialPrices.put("B", new SpecialPriceRules(2, 45));
     }

@@ -61,8 +61,7 @@ public class CheckoutTest {
 
         //then
         Assert.assertEquals(0, total);
-        String output = outContent.toString().trim();
-        Assert.assertEquals("Item UNK is not recognised.", output);
+        Assert.assertEquals("Item UNK is not recognised.", outContent.toString().trim());
     }
 
     @Test
@@ -142,6 +141,5 @@ public class CheckoutTest {
         //then
         Assert.assertEquals(70, total);
     }
-
 
 }
