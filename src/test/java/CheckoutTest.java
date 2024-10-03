@@ -1,3 +1,4 @@
+import org.example.Checkout;
 import org.junit.Assert;
 import org.junit.Test;
 
