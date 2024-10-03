@@ -2,6 +2,9 @@ import org.example.Checkout;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
+
 public class CheckoutTest {
 
     @Test
@@ -41,6 +44,23 @@ public class CheckoutTest {
 
         //then
         Assert.assertEquals(15, total);
+    }
+
+    @Test
+    public void testScanUnknownItem() {
+        //given
+        Checkout checkout = new Checkout();
+        ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(outContent));
+
+        //when
+        checkout.scan("E");
+        int total = checkout.getTotal();
+
+        //then
+        Assert.assertEquals(0, total);
+        String output = outContent.toString().trim();
+        Assert.assertEquals("Item E is not recognized.", output);
     }
 
     @Test
