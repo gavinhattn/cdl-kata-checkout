@@ -31,7 +31,7 @@ public class Checkout {
         int count = itemCounts.get(item);
         if (item.equals("A") && count % 3 == 0) {
             total -= 2 * prices.get(item);
-            total += prices.get(item);
+            total += specialPrices.get(item);
         } else {
             total += prices.get(item);
         }
