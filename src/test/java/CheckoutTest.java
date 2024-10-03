@@ -18,6 +18,32 @@ public class CheckoutTest {
     }
 
     @Test
+    public void testScanSingleItemC() {
+        //given
+        Checkout checkout = new Checkout();
+
+        //when
+        checkout.scan("C");
+        int total = checkout.getTotal();
+
+        //then
+        Assert.assertEquals(20, total);
+    }
+
+    @Test
+    public void testScanSingleItemD() {
+        //given
+        Checkout checkout = new Checkout();
+
+        //when
+        checkout.scan("D");
+        int total = checkout.getTotal();
+
+        //then
+        Assert.assertEquals(15, total);
+    }
+
+    @Test
     public void testScanMultipleItems() {
         //given
         Checkout checkout = new Checkout();
@@ -62,4 +88,6 @@ public class CheckoutTest {
         //then
         Assert.assertEquals(45, total);  // 2 B's for 45 pence
     }
+
+
 }
