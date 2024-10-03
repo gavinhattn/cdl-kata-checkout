@@ -31,4 +31,20 @@ public class CheckoutTest {
         //then
         Assert.assertEquals(100, total); //A+B+C
     }
+
+    @Test
+    public void testSpecialPriceForA(){
+
+        //given
+        Checkout checkout = new Checkout();
+
+        //when
+        checkout.scan("A");
+        checkout.scan("A");
+        checkout.scan("A");
+        int total = checkout.getTotal();
+
+        //then
+        Assert.assertEquals(130, total);  // 3 A's for 130 pence
+    }
 }
