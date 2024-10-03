@@ -25,6 +25,8 @@ public class Checkout {
         if (prices.containsKey(item)) {
             itemCounts.put(item, itemCounts.getOrDefault(item, 0) + 1);
             applyPrice(item);
+        } else {
+            System.out.println("Item " + item + " is not recognised.");
         }
     }
 

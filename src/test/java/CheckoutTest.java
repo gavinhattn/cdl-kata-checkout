@@ -60,7 +60,7 @@ public class CheckoutTest {
         //then
         Assert.assertEquals(0, total);
         String output = outContent.toString().trim();
-        Assert.assertEquals("Item E is not recognized.", output);
+        Assert.assertEquals("Item E is not recognised.", output);
     }
 
     @Test
