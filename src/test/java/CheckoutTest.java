@@ -16,4 +16,19 @@ public class CheckoutTest {
         //then
         Assert.assertEquals(50, total);
     }
+
+    @Test
+    public void testScanMultipleItems() {
+        //given
+        Checkout checkout = new Checkout();
+
+        //when
+        checkout.scan("A");
+        checkout.scan("B");
+        checkout.scan("C");
+        int total = checkout.getTotal();
+
+        //then
+        Assert.assertEquals(100, total); //A+B+C
+    }
 }
